@@ -13,9 +13,22 @@ import 'package:firebase/firebase.dart';
 import 'package:angular/angular.dart';
 import 'package:angular_components/angular_components.dart';
 import 'dart:async';
+import 'dart:html';
 
 typedef T UpdateFunction<T>(T value);
 
+String loadAnimalImage(var name, int count) {
+  String totalImages = "";
+
+  for (var i = 0; i < count; ++i) {
+    totalImages += """<img src="/assets/images/$name.png" width="60%">""";
+  }
+
+  var element = querySelector("#$name-insert");
+  element.children.clear();
+  element.insertAdjacentHtml("afterbegin", totalImages);
+  return totalImages;
+}
 
 // Define a bunch of dependencies for AngularDart to function properly
 @Component(
@@ -44,7 +57,7 @@ class AppComponent implements OnInit{
     );
 
     // Get references to each database entry
-      counterRef = database().ref('counter');
+      counterRef = database().ref('Blobfish');
       hedgehogRef = database().ref('Hedgehogs');
       hamsterRef = database().ref('Hamsters');
       alpacaRef = database().ref('Alpacas');
@@ -52,21 +65,25 @@ class AppComponent implements OnInit{
     // Update values to match what the database holds
     counterRef.onValue.listen((event) {
       count = event.snapshot.val();
+      count_pics = loadAnimalImage("blobfish", count);
     });
     hedgehogRef.onValue.listen((event) {
       hedgehogs = event.snapshot.val();
+      hedgehog_pics = loadAnimalImage("hedgehog", hedgehogs);
     });
     hamsterRef.onValue.listen((event) {
       hamsters = event.snapshot.val();
+      hamster_pics = loadAnimalImage("hamster", hamsters);
     });
     alpacaRef.onValue.listen((event) {
       alpacas = event.snapshot.val();
+      alpaca_pics = loadAnimalImage("alpaca", alpacas);
     });
 
-    count_pics = loadAnimalImage("alpaca", count);
-    hedgehog_pics = loadAnimalImage("hedgehog", hedgehogs);
-    hamster_pics = loadAnimalImage("hamster", hamsters);
-    alpaca_pics = loadAnimalImage("alpaca", alpacas);
+    // count_pics = loadAnimalImage("blobfish", count);
+    // hedgehog_pics = loadAnimalImage("hedgehog", hedgehogs);
+    // hamster_pics = loadAnimalImage("hamster", hamsters);
+    // alpaca_pics = loadAnimalImage("alpaca", alpacas);
 
     // Update values to match what the database holds
 //    databaseRefs.forEach((ref) {
@@ -78,15 +95,6 @@ class AppComponent implements OnInit{
 //    });
   }
 
-  String loadAnimalImage(var name, int count) {
-    String totalImages = "";
-
-    for (var i = 0; i < count; ++i) {
-      totalImages += """<img src="/assets/images/$name.png" width="50%">""";
-    }
-    return totalImages;
-  }
-
   /** Buttons **/
 
   decrease(int key) async {
@@ -94,7 +102,7 @@ class AppComponent implements OnInit{
     switch(key) {
       case 0:
         count = await updateDatabase(decreaseFunc, counterRef);
-        count_pics = loadAnimalImage("alpaca", count);
+        count_pics = loadAnimalImage("blobfish", count);
         break;
       case 1:
         hedgehogs = await updateDatabase(decreaseFunc, hedgehogRef);
@@ -120,7 +128,7 @@ class AppComponent implements OnInit{
     switch(key) {
       case 0:
         count = await updateDatabase(increaseFunc, counterRef);
-        count_pics = loadAnimalImage("alpaca", count);
+        count_pics = loadAnimalImage("blobfish", count);
         break;
       case 1:
         hedgehogs = await updateDatabase(increaseFunc, hedgehogRef);

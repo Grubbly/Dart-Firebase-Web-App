@@ -3,8 +3,6 @@
 
 <h2> Dart Firebase Web App Demo </h2>
 
-<!-- <body> -->
-
 <section class="animal-count">
   <h1> Alpacas: </h1>
   <material-fab (trigger)="decrease(3)">
@@ -17,13 +15,27 @@
       <material-icon icon="add"></material-icon>
   </material-fab>
   <br>
-  <img src='/assets/images/alpaca.png' width='50%'>
+  <!-- <img src='/assets/images/alpaca.png' width='50%'> -->
   <!-- {{alpaca_pics}} -->
+  <div id="alpaca-insert"></div>
 </section>
 
-<!-- <br />
-<br />
-<br /> -->
+<section class="animal-count">
+  <h1> Blobfish: </h1>
+  <material-fab (trigger)="decrease(0)">
+      <material-icon icon="remove"></material-icon>
+  </material-fab>
+
+  <span class="counter-box">{{count}}</span>
+
+  <material-fab (trigger)="increase(0)">
+      <material-icon icon="add"></material-icon>
+  </material-fab>
+  <br>
+  <!-- <img src='/assets/images/blobfish.png' width='50%'> -->
+  <div id="blobfish-insert"></div>
+  <!-- {{count_pics}} -->
+</section>
 
 <section class="animal-count">
   <h1> Hamsters: </h1>
@@ -37,13 +49,10 @@
       <material-icon icon="add"></material-icon>
   </material-fab>
   <br>
-  <img src='/assets/images/hamster.png' width='50%'>
+  <!-- <img src='/assets/images/hamster.png' width='50%'> -->
+  <div id="hamster-insert"></div>
   <!-- {{hamster_pics}} -->
 </section>
-
-<!-- <br />
-<br />
-<br /> -->
 
 <section class="animal-count">
   <h1> Hedgehogs: </h1>
@@ -57,27 +66,7 @@
       <material-icon icon="add"></material-icon>
   </material-fab>
   <br>
-  <img src='/assets/images/hedgehog.png' width='50%'>
+  <!-- <img src='/assets/images/hedgehog.png' width='50%'> -->
+  <div id="hedgehog-insert"></div>
   <!-- {{hedgehog_pics}} -->
 </section>
-
-<!-- <br />
-<br />
-<br /> -->
-
-<section class="animal-count">
-  <h1> Count: </h1>
-  <material-fab (trigger)="decrease(0)">
-      <material-icon icon="remove"></material-icon>
-  </material-fab>
-
-  <span class="counter-box">{{count}}</span>
-
-  <material-fab (trigger)="increase(0)">
-      <material-icon icon="add"></material-icon>
-  </material-fab>
-  <br>
-  <img src='/assets/images/alpaca.png' width='50%'>
-  <!-- {{count_pics}} -->
-</section>
-<!-- </body> -->
