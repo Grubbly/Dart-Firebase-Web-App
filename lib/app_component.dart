@@ -63,6 +63,11 @@ class AppComponent implements OnInit{
       alpacas = event.snapshot.val();
     });
 
+    count_pics = loadAnimalImage("alpaca", count);
+    hedgehog_pics = loadAnimalImage("hedgehog", hedgehogs);
+    hamster_pics = loadAnimalImage("hamster", hamsters);
+    alpaca_pics = loadAnimalImage("alpaca", alpacas);
+
     // Update values to match what the database holds
 //    databaseRefs.forEach((ref) {
 //      count = 1;
