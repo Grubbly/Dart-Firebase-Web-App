@@ -8,12 +8,17 @@ h2 {
 }
 
 body {
-  margin-top: 55px;
+  /* margin-top: 55px; */
   text-align: center;
   background-blend-mode: multiply;
   background: seagreen;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
 }
 
-* {
-  font-family: Roboto, Helvetica, Arial, sans-serif;
+.center-wrapper {
+  background-color: blue;
+  width: 70%;
+  margin: auto;
+  background-color: rgb(38, 106, 67);
+  border-radius: 10px;
 }

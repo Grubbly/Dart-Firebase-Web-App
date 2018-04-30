@@ -3,61 +3,77 @@
 
 <h2> Dart Firebase Web App Demo </h2>
 
-<body>
+<!-- <body> -->
 
-<h1> Alpacas: </h1>
-<material-fab (trigger)="decrease(3)">
-    <material-icon icon="remove"></material-icon>
-</material-fab>
+<section class="animal-count">
+  <h1> Alpacas: </h1>
+  <material-fab (trigger)="decrease(3)">
+      <material-icon icon="remove"></material-icon>
+  </material-fab>
 
-<span> {{alpacas}} </span>
+  <span class="counter-box">{{alpacas}}</span>
 
-<material-fab (trigger)="increase(3)">
-    <material-icon icon="add"></material-icon>
-</material-fab>
+  <material-fab (trigger)="increase(3)">
+      <material-icon icon="add"></material-icon>
+  </material-fab>
+  <br>
+  {{alpaca_pics}}
+</section>
 
+<!-- <br />
 <br />
+<br /> -->
+
+<section class="animal-count">
+  <h1> Hamsters: </h1>
+  <material-fab (trigger)="decrease(2)">
+      <material-icon icon="remove"></material-icon>
+  </material-fab>
+
+  <span class="counter-box">{{hamsters}}</span>
+
+  <material-fab (trigger)="increase(2)">
+      <material-icon icon="add"></material-icon>
+  </material-fab>
+  <br>
+  {{hamster_pics}}
+</section>
+
+<!-- <br />
 <br />
+<br /> -->
+
+<section class="animal-count">
+  <h1> Hedgehogs: </h1>
+  <material-fab (trigger)="decrease(1)">
+      <material-icon icon="remove"></material-icon>
+  </material-fab>
+
+  <span class="counter-box">{{hedgehogs}}</span>
+
+  <material-fab (trigger)="increase(1)">
+      <material-icon icon="add"></material-icon>
+  </material-fab>
+  <br>
+  {{hedgehog_pics}}
+</section>
+
+<!-- <br />
 <br />
+<br /> -->
 
-<h1> Hamsters: </h1>
-<material-fab (trigger)="decrease(2)">
-    <material-icon icon="remove"></material-icon>
-</material-fab>
+<section class="animal-count">
+  <h1> Count: </h1>
+  <material-fab (trigger)="decrease(0)">
+      <material-icon icon="remove"></material-icon>
+  </material-fab>
 
-<span> {{hamsters}} </span>
+  <span class="counter-box">{{count}}</span>
 
-<material-fab (trigger)="increase(2)">
-    <material-icon icon="add"></material-icon>
-</material-fab>
-
-<br />
-<br />
-<br />
-
-<h1> Hedgehogs: </h1>
-<material-fab (trigger)="decrease(1)">
-    <material-icon icon="remove"></material-icon>
-</material-fab>
-
-<span> {{hedgehogs}} </span>
-
-<material-fab (trigger)="increase(1)">
-    <material-icon icon="add"></material-icon>
-</material-fab>
-
-<br />
-<br />
-<br />
-
-<h1> Count: </h1>
-<material-fab (trigger)="decrease(0)">
-    <material-icon icon="remove"></material-icon>
-</material-fab>
-
-<span> {{count}} </span>
-
-<material-fab (trigger)="increase(0)">
-    <material-icon icon="add"></material-icon>
-</material-fab>
-</body>
+  <material-fab (trigger)="increase(0)">
+      <material-icon icon="add"></material-icon>
+  </material-fab>
+  <br>
+  {{count_pics}}
+</section>
+<!-- </body> -->

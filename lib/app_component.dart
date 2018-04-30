@@ -16,6 +16,7 @@ import 'dart:async';
 
 typedef T UpdateFunction<T>(T value);
 
+
 // Define a bunch of dependencies for AngularDart to function properly
 @Component(
   selector: 'my-app',
@@ -29,6 +30,7 @@ typedef T UpdateFunction<T>(T value);
 class AppComponent implements OnInit{
   DatabaseReference counterRef, hedgehogRef, hamsterRef, alpacaRef;
   int count = 0, hedgehogs = 0, hamsters = 0, alpacas = 0;
+  String alpaca_pics = "", hamster_pics = "", hedgehog_pics = "", count_pics = "";
   // When the app is first instantiated, load in data from Firebase.
   @override
   ngOnInit() {
@@ -71,6 +73,15 @@ class AppComponent implements OnInit{
 //    });
   }
 
+  String loadAnimalImage(var name, int count) {
+    String totalImages = "";
+
+    for (var i = 0; i < count; ++i) {
+      totalImages += """<img src="/assets/images/$name.png" width="50%">""";
+    }
+    return totalImages;
+  }
+
   /** Buttons **/
 
   decrease(int key) async {
@@ -78,15 +89,19 @@ class AppComponent implements OnInit{
     switch(key) {
       case 0:
         count = await updateDatabase(decreaseFunc, counterRef);
+        count_pics = loadAnimalImage("alpaca", count);
         break;
       case 1:
         hedgehogs = await updateDatabase(decreaseFunc, hedgehogRef);
+        hedgehog_pics = loadAnimalImage("hedgehog", hedgehogs);
         break;
       case 2:
         hamsters = await updateDatabase(decreaseFunc, hamsterRef);
+        hamster_pics = loadAnimalImage("hamster", hamsters);
         break;
       case 3:
         alpacas = await updateDatabase(decreaseFunc, alpacaRef);
+        alpaca_pics = loadAnimalImage("alpaca", alpacas);
         break;
       default:
         throw new Exception("""Decrease decremented an invalid reference.
@@ -100,15 +115,19 @@ class AppComponent implements OnInit{
     switch(key) {
       case 0:
         count = await updateDatabase(increaseFunc, counterRef);
+        count_pics = loadAnimalImage("alpaca", count);
         break;
       case 1:
         hedgehogs = await updateDatabase(increaseFunc, hedgehogRef);
+        hedgehog_pics = loadAnimalImage("hedgehog", hedgehogs);
         break;
       case 2:
         hamsters = await updateDatabase(increaseFunc, hamsterRef);
+        hamster_pics = loadAnimalImage("hamster", hamsters);
         break;
       case 3:
         alpacas = await updateDatabase(increaseFunc, alpacaRef);
+        alpaca_pics = loadAnimalImage("alpaca", alpacas);
         break;
       default:
         throw new Exception("""Increase incremented an invalid reference.
